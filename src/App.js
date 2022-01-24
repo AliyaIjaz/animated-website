@@ -1,24 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import Home from './components/pages/Home';
+import Services from './components/pages/Services';
+import SignUp from './components/pages/SignUp';
+import Products from './components/pages/Products';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 function App() {
+    const location=useLocation();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+   
+     <Navbar />
+     <TransitionGroup>
+     <CSSTransition
+     timeout={1000}
+     classNames='fade'
+     key={location.key}
+     >
+     <Routes location={location}>
+       <Route path="/" exact element=
+       { <Home/>} />
+       <Route path="services" element=
+       { <Services/>} />
+      <Route path="sign-up" element=
+       { <SignUp/>} />
+      <Route path="products" element=
+       { <Products/>} />
+      </Routes>
+      </CSSTransition>
+      </TransitionGroup>
+    
+    </>
   );
 }
 
