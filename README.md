@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Project is hosted on surge http://animated-website-aliya.surge.sh/
+
 ## Available Scripts
 
 In the project directory, you can run:
